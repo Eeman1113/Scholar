@@ -1,0 +1,212 @@
+/* Markdown-specific styling for better integration with the app */
+
+/* Code blocks */
+.prose pre {
+  @apply bg-muted/50 border border-border rounded-lg;
+  overflow-x: auto;
+  position: relative;
+}
+
+.prose pre code {
+  @apply bg-transparent text-foreground;
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+/* Inline code */
+.prose code {
+  @apply bg-muted/50 text-foreground px-1.5 py-0.5 rounded text-sm;
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.prose :not(pre) > code {
+  @apply bg-muted/50 text-foreground;
+}
+
+/* Tables */
+.prose table {
+  @apply w-full border-collapse;
+}
+
+.prose th {
+  @apply bg-muted/50 border border-border px-3 py-2 text-left font-semibold;
+}
+
+.prose td {
+  @apply border border-border px-3 py-2;
+}
+
+.prose tbody tr:nth-child(even) {
+  @apply bg-muted/20;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  @apply border-l-4 border-primary/50 bg-muted/30 pl-4 py-2 my-4 rounded-r italic;
+}
+
+/* Links */
+.prose a {
+  @apply text-primary hover:text-primary/80 underline decoration-2 underline-offset-2;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Headings */
+.prose h1 {
+  @apply text-2xl font-bold mt-6 mb-4 pb-2 border-b border-border;
+}
+
+.prose h2 {
+  @apply text-xl font-semibold mt-5 mb-3 pb-1 border-b border-border/50;
+}
+
+.prose h3 {
+  @apply text-lg font-semibold mt-4 mb-2;
+}
+
+.prose h4 {
+  @apply text-base font-semibold mt-3 mb-2;
+}
+
+.prose h5 {
+  @apply text-sm font-semibold mt-2 mb-1;
+}
+
+.prose h6 {
+  @apply text-xs font-semibold mt-2 mb-1 text-muted-foreground;
+}
+
+/* Lists */
+.prose ul {
+  @apply list-disc list-inside space-y-1 my-2;
+}
+
+.prose ol {
+  @apply list-decimal list-inside space-y-1 my-2;
+}
+
+.prose li {
+  @apply ml-2;
+}
+
+.prose ul li::marker {
+  @apply text-primary;
+}
+
+.prose ol li::marker {
+  @apply text-primary font-semibold;
+}
+
+/* Nested lists */
+.prose ul ul, .prose ul ol, .prose ol ul, .prose ol ol {
+  @apply mt-1 mb-0;
+}
+
+/* Task lists */
+.prose input[type="checkbox"] {
+  @apply mr-2 rounded border-border accent-primary;
+}
+
+/* Horizontal rules */
+.prose hr {
+  @apply my-6 border-border;
+}
+
+/* Emphasis */
+.prose em {
+  @apply italic text-primary/90;
+}
+
+.prose strong {
+  @apply font-semibold text-foreground;
+}
+
+.prose del {
+  @apply line-through text-muted-foreground;
+}
+
+/* Paragraphs */
+.prose p {
+  @apply mb-3 leading-relaxed;
+}
+
+/* Math equations (KaTeX) */
+.prose .katex {
+  @apply text-foreground;
+}
+
+.prose .katex-display {
+  @apply my-4;
+}
+
+/* Image styling */
+.prose img {
+  @apply rounded-lg border border-border shadow-sm;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Figure and figcaption */
+.prose figure {
+  @apply my-4;
+}
+
+.prose figcaption {
+  @apply text-sm text-muted-foreground text-center mt-2 italic;
+}
+
+/* Code syntax highlighting adjustments for dark mode */
+.dark .prose pre {
+  @apply bg-slate-900/50;
+}
+
+.dark .prose code {
+  @apply bg-slate-800/50;
+}
+
+/* Compact markdown for smaller contexts */
+.prose-xs {
+  @apply text-xs leading-5;
+}
+
+.prose-xs h1 {
+  @apply text-lg font-bold mt-3 mb-2;
+}
+
+.prose-xs h2 {
+  @apply text-base font-semibold mt-2 mb-1;
+}
+
+.prose-xs h3 {
+  @apply text-sm font-semibold mt-2 mb-1;
+}
+
+.prose-xs p {
+  @apply mb-2;
+}
+
+.prose-xs ul, .prose-xs ol {
+  @apply my-1 space-y-0;
+}
+
+.prose-xs blockquote {
+  @apply my-2 py-1;
+}
+
+/* Smooth transitions */
+.prose * {
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* Focus states for interactive elements */
+.prose a:focus {
+  @apply outline-none ring-2 ring-primary/50 rounded;
+}
+
+.prose input[type="checkbox"]:focus {
+  @apply outline-none ring-2 ring-primary/50 rounded;
+}
+
+/* Selection styling */
+.prose ::selection {
+  @apply bg-primary/20;
+}
